@@ -1,28 +1,29 @@
 import { useState } from 'react'
-
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import About from './About'
+import FAQ from './FAQ'
+import Feedback from './Feedback'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [view, setView] = useState("home")
+  const [open, setOpen] = useState(false)
 
   return (
-    <>
-      <div>
+    <BrowserRouter>
+      <Link to="/about">About</Link>
+      <Link to="/faq">FAQ</Link>
+      <Link to="/feedback">Feedback</Link>
+      <Routes>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/faq" element={<FAQ />}></Route>
+        <Route path="/feedback" element={<Feedback />}></Route>
+      </Routes>
       
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <h1>Welcome To ORD10/11</h1>
+      <button onClick={() => setView("about")}>About</button>
+      {view === 'about' && <About/ >}
+    </BrowserRouter>
   )
 }
 
