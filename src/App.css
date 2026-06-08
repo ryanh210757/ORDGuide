@@ -1,0 +1,36 @@
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;          
+  border-radius: 12px;
+  background: white;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.actionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+img{
+  width: 100%;
+  border-radius: 12px;
+}
+
+.feedback {
+  min-width: 45%;
+  height: 150px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+}
