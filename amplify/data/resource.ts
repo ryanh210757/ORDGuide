@@ -1,3 +1,4 @@
+// amplify/data/resource.ts
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
 const schema = a.schema({
@@ -12,7 +13,10 @@ const schema = a.schema({
       rating: a.integer(), // 1-5 star rating
       createdAt: a.datetime(),
     })
-    .authorization((allow) => [allow.guest()]), // Anyone can submit feedback
+    .authorization((allow) => [
+      allow.guest(), // Anyone can submit feedback
+      allow.publicApiKey() // Add this for easier testing
+    ]), 
     
   // Office information for different locations/QR codes
   OfficeInfo: a
@@ -25,7 +29,10 @@ const schema = a.schema({
       qrCodeId: a.string(), // Unique ID for each QR code location
       isActive: a.boolean(),
     })
-    .authorization((allow) => [allow.guest()]), // Anyone can read office info
+    .authorization((allow) => [
+      allow.guest(), // Anyone can read office info
+      allow.publicApiKey() // Add this for easier testing
+    ]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -34,5 +41,9 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'identityPool',
+    // Add API key as backup
+    apiKeyAuthorizationMode: {
+      expiresInDays: 30,
+    },
   },
 });
