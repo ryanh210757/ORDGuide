@@ -23,39 +23,39 @@ export default function FAQ(){
 const data = [
     {
         question: "What is the difference between ORD10 and ORD11?", 
-        answer: "ORD10 is the Monroe Side. ORD10 only has one floor, ORD11 has 5, 6, 7, 8 and 14", 
+        answer: "ORD10 and ORD11 are connected office spaces within the same building. ORD10 consists of the 14th floor, while ORD11 occupies floors 5, 6, 7, 8, and 14", 
     }, 
     {
-        question: "What floors are Amazon's?", 
-        answer: "We have floors 5, 6, 7, 8 and 14.", 
+        question: "What floors does Amazon occupy?", 
+        answer: "ORD11 has floors 5, 6, 7, 8, and 14. ORD10 has floor 14", 
     }, 
     {
-        question: "Are there any food options?", 
-        answer: "There is a cafe on the 2nd floor, Rustle & Roux. There is also Sopprafina", 
+        question: "Are there any food options in the building?", 
+        answer: "Rustle & Roux is located on the 2nd floor near the ORD10 side of the building and offers breakfast and lunch options. Sopraffina is located in the building lobby", 
     }, 
     {
-        question: "Why is my badge not working?", 
-        answer: "If you haven't been in the office for a while, it mightve went to an inactive status called Use/Lose. The cutoff time is 4 weeks. ", 
-    }, 
-    {
-        question: "How long is the office open?", 
-        answer: "Reception is avaiable from 8:00am - 5:00pm. The building is open 24/7 with security presence.", 
+        question: "What are the building and reception hours?", 
+        answer: "Reception is open Monday through Friday from 8:00 AM to 5:00 PM. The building remains accessible 24/7 for authorized badge holders, and security is onsite at all times.", 
     }, 
     {
         question: "Do you validate parking?", 
-        answer: "We do not validate parking for Amazon employees. We are only able to provide validation for external guests.", 
+        answer: "Parking validation is available for external guests visiting the office. Unfortunately, we are unable to provide parking validation for Amazon employees.", 
     }, 
     {
         question: "Can I bring a vistor?", 
-        answer: "Yes! All visitors must be registered with the building. You can send us an email in advanced. They'll check in with the building and with us.", 
+        answer: "Yes. All visitors must be registered with the building before arrival. Please send reception the visitor's name and email address in advance. Visitors will check in with building reception before proceeding to the Amazon reception desk.", 
     }, 
     {
         question: "Is there an agile seating?", 
-        answer: "We have agile desks on Floors 5 and 6. If you see a desk with an agile label on it, feel free to use it for the day.", 
+        answer: "Yes. Agile workspaces are available on floors 5 and 6. Desks marked with an Agile Workspace label are available on a first-come, first-served basis unless otherwise reserved.", 
     },
     {
         question: "Are there any Slack channels?", 
-        answer: "Chicago Social and ORD-Vultures are pretty popluar to keep up with events in the city and leftover food.", 
+        answer: "Chicago Social is a great channel for local events, office activities, and networking opportunities. ORD-Vultures is commonly used for leftover catering and food available in the office.", 
+    }, 
+    {
+        question: "Is there IT Support onsite",
+        answer: "IT Support is avaialbe in the office by appointment. For urgent issues, you can contact IT through the online support chat."
     }
 
 ]
