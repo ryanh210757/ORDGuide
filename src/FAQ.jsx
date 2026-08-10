@@ -82,5 +82,9 @@ const data = [
     {
         question: "Is there IT Support onsite?",
         answer: "IT Support is available in the office by appointment. For urgent issues, you can contact IT through the online support chat."
+    },
+    {
+         question: "What is the Guest Wifi?",
+        answer: `SSID: Guest Password: BrokenWires@@2019`
     }
 ]
