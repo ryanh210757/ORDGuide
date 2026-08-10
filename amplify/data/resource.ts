@@ -1,5 +1,5 @@
-// amplify/data/resource.ts
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
+import { chatFunction } from '../functions/chat/resource';
 
 const schema = a.schema({
   // Feedback from office visitors/employees
@@ -8,31 +8,42 @@ const schema = a.schema({
       name: a.string().required(),
       email: a.email(),
       message: a.string().required(),
-      location: a.string(), // Which office area/floor they're giving feedback about
-      category: a.string(), // "suggestion", "issue", "compliment", "facility"
-      rating: a.integer(), // 1-5 star rating
+      location: a.string(),
+      category: a.string(),
+      rating: a.integer(),
       createdAt: a.datetime(),
     })
     .authorization((allow) => [
-      allow.guest(), // Anyone can submit feedback
-      allow.publicApiKey() // Add this for easier testing
-    ]), 
-    
+      allow.guest(),
+      allow.publicApiKey()
+    ]),
+
   // Office information for different locations/QR codes
   OfficeInfo: a
     .model({
       title: a.string().required(),
       description: a.string(),
-      category: a.string(), // "emergency", "directory", "amenities", "navigation"
+      category: a.string(),
       floor: a.string(),
       room: a.string(),
-      qrCodeId: a.string(), // Unique ID for each QR code location
+      qrCodeId: a.string(),
       isActive: a.boolean(),
     })
     .authorization((allow) => [
-      allow.guest(), // Anyone can read office info
-      allow.publicApiKey() // Add this for easier testing
+      allow.guest(),
+      allow.publicApiKey()
     ]),
+
+  // Chat query for Bedrock agent
+  chat: a
+    .query()
+    .arguments({
+      message: a.string().required(),
+      conversationHistory: a.string(),
+    })
+    .returns(a.string())
+    .authorization((allow) => [allow.guest(), allow.publicApiKey()])
+    .handler(a.handler.function(chatFunction)),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -41,7 +52,6 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'identityPool',
-    // Add API key as backup
     apiKeyAuthorizationMode: {
       expiresInDays: 30,
     },
